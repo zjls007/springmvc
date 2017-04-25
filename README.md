@@ -1,0 +1,6 @@
+功能点：
+1.类型转换Converter
+2.方法参数解析器MethodArgumentsResolver
+3.消息转换HttpMessageConverter
+4.拦截器
+5.过滤器使用HttpServletRequestWrapper解决接受参数时处理
