@@ -19,7 +19,22 @@
     <artifactId>spring-webmvc</artifactId>
     <version>${spring.version}</version>
   </dependency>
-  <!-- 配合sprinmvc的@ResponseBody将对象转换成json-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+    <!-- 配合sprinmvc的@ResponseBody将对象转换成json-->
   <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
