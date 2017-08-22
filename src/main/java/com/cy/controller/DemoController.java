@@ -7,7 +7,9 @@ import com.cy.common.enumeration.Color;
 import com.cy.entity.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -104,6 +106,22 @@ public class DemoController {
 
     @RequestMapping("test2")
     public Object g(@FormModel("b1") Bean1 b1, @FormModel("b2") Bean2 b2) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(b1) + objectMapper.writeValueAsString(b2);
+    }
+
+    @InitBinder("b1")
+    public void a(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("b1.");
+    }
+
+    @InitBinder("b2")
+    public void b(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("b2.");
+    }
+
+    @RequestMapping("test3")
+    public Object c(@ModelAttribute("b1") Bean1 b1, @ModelAttribute("b2") Bean2 b2) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(b1) + objectMapper.writeValueAsString(b2);
     }
